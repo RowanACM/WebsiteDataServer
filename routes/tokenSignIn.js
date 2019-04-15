@@ -34,7 +34,7 @@ module.exports = state => {
 
             if (!payload.email_verified) {
                 res.status(403).send(); // User's email isn't verified by Google TODO: Verify it ourselves
-                console.log("Rejected sign in (400) - unverified email");
+                console.log("Rejected sign in (403) - unverified email");
                 return;
             }
 
