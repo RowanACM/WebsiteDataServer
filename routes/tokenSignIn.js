@@ -71,7 +71,6 @@ module.exports = state => {
                                 res.status(200).send(JSON.stringify({
                                     signedIn: false,
                                 }));
-                                console.log("sub: " + sub + " token: " + token);
                             }
 
                         });
