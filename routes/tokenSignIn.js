@@ -52,6 +52,7 @@ module.exports = state => {
                     if (req.body["verify"]) { // User is verifying that they are signed in
                         db.get(`select isAdmin, expires from users where sub='${sub}'`, [], (err, row) => {
 
+                            // TODO: Clean this mess up
                             if (row) {
                                 if (new Date().getTime() < row["expires"]) {
 
@@ -60,14 +61,14 @@ module.exports = state => {
                                         isAdmin: row["isAdmin"]
                                     }));
 
-                                } else { // TODO: clean this mess up
+                                } else { // User session is expired
 
                                     res.status(200).send(JSON.stringify({
                                         signedIn: false,
                                     }));
 
                                 }
-                            } else {
+                            } else { // User does not exist
                                 res.status(200).send(JSON.stringify({
                                     signedIn: false,
                                 }));
