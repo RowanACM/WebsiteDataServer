@@ -1,7 +1,7 @@
 
 "use strict";
 
-const age = 1000 * 5 * 60; // Five minutes in ms before user session expires
+const age = 1000 * 15 * 60; // Time in ms before user session expires
 
 module.exports = state => {
 
