@@ -78,6 +78,18 @@ module.exports = state => {
                         return;
                     }
 
+                    if (req.body["info"]) {
+
+                        db.get(`select name, picture, email, isAdmin, desc from users where sub='${sub}'`, [], (err, row) => {
+
+                            res.status(200).send(JSON.stringify(row));
+
+                        });
+
+                        return;
+
+                    }
+
                     db.run(`update users set expires=${date} where sub='${sub}'`);
 
                     res.status(200).send(JSON.stringify({
