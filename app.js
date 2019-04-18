@@ -32,10 +32,14 @@ const announcementRoutes = require('./routes/announcements');
 const addAnnouncementRoutes = require("./routes/addAnnouncement");
 const tokenSignIn = require("./routes/tokenSignIn");
 const accounts = require("./routes/accounts");
+const editAccount = require("./routes/editAccount");
+const committees = require("./routes/committees");
 app.use('/', announcementRoutes(state));
 app.use("/", addAnnouncementRoutes(state));
 app.use("/", tokenSignIn(state));
 app.use("/", accounts(state));
+app.use("/", editAccount(state));
+app.use("/", committees(state));
 
 const PORT = 5000;
 app.listen(PORT,()=> {
